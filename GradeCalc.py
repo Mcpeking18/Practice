@@ -12,7 +12,7 @@ dict = {}
 def total(sub):
     totally = 0
     for i in range(len(sub)):
-        print("Please enter your marks in",sub[i],end = " : ")
+        print(f"Please enter your marks in {sub[i]}" ,end = " : ")
         a = float(input())
         if a <= 33:
             dict[sub[i]] = "FAILED"
@@ -22,17 +22,20 @@ def total(sub):
     return (totally/5)
 
 def ask_sub(Class):
-    if Class == 1:
-        a = total(Sub1)
-    elif Class == 2:
-        a = total(Sub2)
-    else:
-        a = total(Sub3)
+    # if Class == 1:
+    #     a = total(Sub1)
+    # elif Class == 2:
+    #     a = total(Sub2)
+    # else:
+    #     a = total(Sub3)
+    a = total(Sub1) if Class == 1 else total(Sub2) if Class == 2 else total(Sub3) 
+    #TURNS OUT YOU CAN WRITE IT THIS WAY WHAT THE FUCK??????
     return a
 
 marks = ask_sub(Class)
 print("\nYour final average marks are : ", marks, "\n")
 
+# I'd hope this below can be written like that 
 if marks >= 90:
     print("Your final grade is A\n")
 elif marks >= 80:
@@ -42,7 +45,10 @@ elif marks >= 70:
 elif marks >= 60:
     print("Your final grade is D\n")
 else:
-    print("I would quit studying atp\n")
+    print("I would quit studying atp\n") 
+
+# CRAZY shit even tho its not that good to write like that but dammmm
+# print("Your final grade is A\n") if marks >= 90 else print("Your final grade is B\n") if marks >= 80 else print("Your final grade is C\n") if marks >= 70 else print("Your final grade is D\n") if marks >= 60 else print("I would quit studying atp\n")
 
 print("About your subjects : \n")
 for i in dict:
